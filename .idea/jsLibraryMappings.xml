@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="JavaScriptLibraryMappings">
-    <file url="file://$PROJECT_DIR$" libraries="{fooforms-mobile node_modules}" />
-    <file url="PROJECT" libraries="{cordova-ionic-DefinitelyTyped, gulp-DefinitelyTyped, gulp-util-DefinitelyTyped, jasmine-DefinitelyTyped, lodash-DefinitelyTyped}" />
-    <includedPredefinedLibrary name="Node.js Globals" />
-  </component>
-</project>
