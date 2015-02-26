@@ -1,13 +1,13 @@
 angular.module('fooforms.config', ['ionic', 'restangular'])
-    .config(function ($compileProvider) {
+    .config(['$compileProvider', function ($compileProvider) {
         'use strict';
         $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|tel):/);
-    })
-    .config(function ($httpProvider) {
+    }])
+    .config(['$httpProvider', function ($httpProvider) {
         'use strict';
         $httpProvider.defaults.timeout = 10000;
-    })
-    .config(function (RestangularProvider, SERVER) {
+    }])
+    .config(['RestangularProvider', 'SERVER', function (RestangularProvider, SERVER) {
         RestangularProvider.setBaseUrl(SERVER.rootUrl + '/api');
 
         RestangularProvider.setDefaultHeaders({'Content-Type': 'application/json'});
@@ -27,8 +27,8 @@ angular.module('fooforms.config', ['ionic', 'restangular'])
             }
             return extractedData;
         });
-    })
-    .config(function ($stateProvider, $urlRouterProvider) {
+    }])
+    .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 
         $stateProvider
             .state('login', {
@@ -63,4 +63,4 @@ angular.module('fooforms.config', ['ionic', 'restangular'])
                 }
             });
         $urlRouterProvider.otherwise('/login');
-    });
+    }]);

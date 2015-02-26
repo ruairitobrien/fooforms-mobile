@@ -1,11 +1,11 @@
 /* global angular */
 
 angular.module('fooforms.authentication')
-    .controller('LoginCtrl', ['$scope', '$rootScope', 'AUTH_EVENTS', 'AuthService', function ($scope, $rootScope, AUTH_EVENTS, AuthService) {
+    .controller('LoginCtrl', ['$scope', 'AUTH_EVENTS', 'AuthService', function ($scope, AUTH_EVENTS, AuthService) {
         'use strict';
         $scope.user = {
-            username: '',
-            password: ''
+            username: null,
+            password: null
         };
 
         $scope.login = function (user) {
@@ -15,13 +15,11 @@ angular.module('fooforms.authentication')
             AuthService.login();
         };
 
-      /**  success() {
-            $scope.message = res.message || 'An error occurred while trying to log you in.';
-        }
+        $scope.$on(AUTH_EVENTS.loginSuccess, function () {
+            $scope.user.username = null;
+            $scope.user.password = null;
+        });
 
-        failed() {
-            $scope.message = res.message || 'An error occurred while trying to log you in.';
-        }*/
 
     }])
     .controller('LogoutCtrl', ['$scope', '$rootScope', 'AUTH_EVENTS', 'AuthService', function ($scope, $rootScope, AUTH_EVENTS, AuthService) {

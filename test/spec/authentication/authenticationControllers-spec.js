@@ -1,14 +1,13 @@
-describe("AppCtrl", function () {
+describe("LoginCtrl", function () {
 
     var scope, controller;
     beforeEach(module('fooforms'));
 
-    beforeEach(inject(function (
-        $rootScope, $controller) {
+    beforeEach(inject(function ($rootScope, $controller) {
 
         scope = $rootScope.$new();
 
-        controller = $controller('AppCtrl', {
+        controller = $controller('LoginCtrl', {
             $scope: scope
         });
     }));
